@@ -18,8 +18,9 @@ async function accountsToDb(userId, groupId) {
 async function getAllGroupsDb(userId) {
   try {
     const connection = await mysql.createConnection(dbConfig);
+    // eslint-disable-next-line operator-linebreak
     const sql =
-      'SELECT accounts.user_id, accounts.group_id, groups.name AS groups FROM accounts LEFT JOIN groups ON accounts.groups.id=accounts.group_id WHERE user_id=?';
+      'SELECT accounts.user_id, accounts.group_id, groups.name AS groups FROM accounts LEFT JOIN groups ON groups.id=accounts.group_id WHERE user_id=?';
 
     const [dataFromDb] = await connection.execute(sql, [userId]);
     await connection.close();

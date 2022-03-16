@@ -20,7 +20,6 @@ async function validateUser(req, res, next) {
       message: detail.message,
       success: false,
     }));
-    console.log('formatedError', formatedError);
     res.status(400).json({ formatedError, success: false });
   }
 }
@@ -42,14 +41,12 @@ async function validateRegistration(req, res, next) {
       message: detail.message,
       success: false,
     }));
-    console.log('formatedError', formatedError);
     res.status(400).json({ formatedError, success: false });
   }
 }
 
 function validateToken(req, res, next) {
   const authHeader = req.headers.authorization;
-  console.log(authHeader);
   const tokenGotFromUser = authHeader && authHeader.split(' ')[1];
   if (!tokenGotFromUser) return ErrorCase(res, 'no token', 401);
 

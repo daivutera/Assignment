@@ -2,7 +2,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
  
     {
-        "email":"dai@dai.lt",
+        "full_name":"daiva rajackiene",
+        "email":"daiva@daiva.lt",
         "password":"secret122"
     }
 
@@ -16,10 +17,28 @@ Content-Type: application/json
     "password":"secret122"
  }
 ###
- POST  http://localhost:3000/accounts
- Content-Type: application/json
- Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDM0NzQwLCJleHAiOjE2NDc0MzgzNDB9.2BfF9g4nG81tgsXgIMvx_fPqNCfpVJyb_c-8avXSGCM
-
+POST  http://localhost:3000/accounts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
  {
     "group_id":1
  }
+
+###
+ 
+http://localhost:3000/accounts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
+###
+
+POST http://localhost:3000/bills
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
+
+{
+    "group_id":1,
+    "amount": 200,
+    "description": "drinks"
+ }
+###
+GET http://localhost:3000/bills/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk

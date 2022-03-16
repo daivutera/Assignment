@@ -1,18 +1,16 @@
-const Joi = require('joi');
+/* eslint-disable consistent-return */
+/* eslint-disable camelcase */
 const {
   ErrorCase,
   successCase,
   verifyHash,
   generateJwtToken,
-  hashPass,
 } = require('../helpers');
-
 const { userLoginDb, registerUserToDb } = require('../models/authModel');
 
 async function loginUser(req, res) {
   const { email, password } = req.body;
   const users = await userLoginDb(email);
-  console.log('users===', users);
 
   if (users === false) {
     ErrorCase(res);
