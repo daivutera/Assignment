@@ -34,8 +34,6 @@ function verifyJwtToken(token) {
     const payload = jwt.verify(token, jwtSecret);
     return payload;
   } catch (err) {
-    // err
-    console.log('err ===', err.message);
     return false;
   }
 }

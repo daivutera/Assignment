@@ -10,5 +10,6 @@ accountsRouter.post(
   validateToken,
   accountsController.postAccounts
 );
+accountsRouter.get('/accounts', validateToken, accountsController.getAllGroups);
 
 module.exports = accountsRouter;
