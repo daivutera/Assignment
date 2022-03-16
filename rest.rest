@@ -1,0 +1,17 @@
+POST http://localhost:3000/register
+Content-Type: application/json
+ 
+    {
+        "email":"dai@dai.lt",
+        "password":"secret122"
+    }
+
+###
+
+POST  http://localhost:3000/login
+Content-Type: application/json
+
+ {
+    "email":"dai@dai.lt",
+    "password":"secret122"
+ }

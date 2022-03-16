@@ -1,9 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-// const usersRouter = require('./routes/usersRouter');
-// const loginRouter = require('./routes/loginRouter');
-// const registerRouter = require('./routes/registerRouter');
+const authRouter = require('./routes/authRouter');
+// const loginRouter = require('./routes/accountsRouter');
+// const registerRouter = require('./routes/billsRouter');
 
 const PORT = process.env.PORT || 3001;
 
@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-app.use('/', usersRouter);
-// app.use('/', loginRouter);
-// app.use('/', registerRouter);
+app.use('/', authRouter);
+// app.use('/', accountsRouter);
+// app.use('/', billsRouter);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
