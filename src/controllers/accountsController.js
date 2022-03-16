@@ -13,4 +13,15 @@ async function postAccounts(req, res) {
   successCase(res, users);
 }
 
-module.exports = { postAccounts };
+async function getAllGroups(req, res) {
+  const { group_id } = req.body;
+  const user_id = req.userId;
+  const users = await getAllGroupsDb(group_id, user_id);
+  if (users === false) {
+    ErrorCase(res);
+    return;
+  }
+  successCase(res, users);
+}
+
+module.exports = { postAccounts, getAllGroups };

@@ -16,12 +16,16 @@ async function userLoginDb(email) {
   }
 }
 
-async function registerUserToDb(email, password) {
+async function registerUserToDb(fullName, email, password) {
   try {
     const connection = await mysql.createConnection(dbConfig);
     console.log('prisijungiau');
-    const sql = `INSERT INTO ${tableName} (email, password)VALUES(?,?)`;
-    const [dataFromDb] = await connection.execute(sql, [email, password]);
+    const sql = `INSERT INTO ${tableName} (full_name, email, password)VALUES(?,?,?)`;
+    const [dataFromDb] = await connection.execute(sql, [
+      fullName,
+      email,
+      password,
+    ]);
     await connection.close();
     return dataFromDb;
   } catch (error) {
