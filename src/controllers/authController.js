@@ -12,6 +12,7 @@ const { userLoginDb, registerUserToDb } = require('../models/authModel');
 async function loginUser(req, res) {
   const { email, password } = req.body;
   const users = await userLoginDb(email);
+  console.log('users===', users);
 
   if (users === false) {
     ErrorCase(res);

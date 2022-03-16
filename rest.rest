@@ -15,3 +15,11 @@ Content-Type: application/json
     "email":"dai@dai.lt",
     "password":"secret122"
  }
+###
+ POST  http://localhost:3000/accounts
+ Content-Type: application/json
+ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDM0NzQwLCJleHAiOjE2NDc0MzgzNDB9.2BfF9g4nG81tgsXgIMvx_fPqNCfpVJyb_c-8avXSGCM
+
+ {
+    "group_id":1
+ }
