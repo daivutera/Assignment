@@ -1,4 +1,5 @@
 const mysql = require('mysql2/promise');
+
 const dbConfig = require('../dbConfig');
 
 const tableName = 'users';
@@ -11,7 +12,6 @@ async function userLoginDb(email) {
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db');
     return false;
   }
 }
@@ -29,7 +29,6 @@ async function registerUserToDb(fullName, email, password) {
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db', error);
     return false;
   }
 }

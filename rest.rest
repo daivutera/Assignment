@@ -2,9 +2,9 @@ POST http://localhost:3000/register
 Content-Type: application/json
  
     {
-        "full_name":"daiva rajackiene",
-        "email":"daiva@daiva.lt",
-        "password":"secret122"
+        "full_name":"katherin",
+        "email":"du@du.lt",
+        "password":"katherin"
     }
 
 ###
@@ -13,31 +13,32 @@ POST  http://localhost:3000/login
 Content-Type: application/json
 
  {
-    "email":"dai@dai.lt",
-    "password":"secret122"
+    "email":"du@du.lt",
+    "password":"katherin"
  }
 ###
 POST  http://localhost:3000/accounts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTE2ODcxLCJleHAiOjE2NDc1MjA0NzF9._ctSepH01bziTHaTVasnoDfqPObrvGgkddk1oJVuWBk
+
  {
-    "group_id":1
+    "group_id":4
  }
 
 ###
  
 http://localhost:3000/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjQ3NTM2Mzk2LCJleHAiOjE2NDc1Mzk5OTZ9.SsANrRCJJUn1gppTOsOHtB4I_E4QzCr0KwNXfP02V0o
 ###
 
 POST http://localhost:3000/bills
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NDUwNzIzLCJleHAiOjE2NDc0NTQzMjN9.wj1DGB6JZw-PC-WRlhcK80-re39rO6LP8CoTJQydkFk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI0MTA2LCJleHAiOjE2NDc1Mjc3MDZ9.NCiNTrBKmGuqYdL2EPRY21PvkXPREHtOMlq29mwmsxc
 
 {
     "group_id":1,
-    "amount": 200,
-    "description": "drinks"
+    "amount": 100,
+    "description": "fuel"
  }
 ###
 GET http://localhost:3000/bills/1

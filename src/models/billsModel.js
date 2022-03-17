@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const mysql = require('mysql2/promise');
 
 const dbConfig = require('../dbConfig');
@@ -12,7 +13,6 @@ async function getBillsByIdDb(groupId) {
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db');
     return false;
   }
 }
@@ -33,7 +33,6 @@ async function postBillToGroupDb(
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db');
     return false;
   }
 }

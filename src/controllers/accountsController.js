@@ -5,7 +5,7 @@ const { accountsToDb, getAllGroupsDb } = require('../models/accountsModel');
 async function postAccounts(req, res) {
   const { group_id } = req.body;
   const user_id = req.userId;
-  const users = await accountsToDb(group_id, user_id);
+  const users = await accountsToDb(user_id, group_id);
   if (users === false) {
     ErrorCase(res);
     return;

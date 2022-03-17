@@ -20,6 +20,7 @@ Register: vartotojas įrašo vardą, emailą ir slaptažodį du kartus (jei nesu
 Login: vartotojas įrašo emailą, slaptažodį; gauna token; nukreipia į groups pasirinkimą.
 Groups: vartotojas mato visas savo grupes (pagal accounts lentelę iš DB). Paspaudus - nuveda į tos grupės bills. Apačioje forma pridėti grupę prie paskyros (t.y. į accounts lentelę).
 Bills: mato sąskaitas specifinės grupės ir gali pridėti naujas.
+
 Užduoties įkėlimo instrukcijos
 
 Instrukcijas, kaip valdyti GitHub repozitorijas rasite - https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories arba step-by-step žemiau.

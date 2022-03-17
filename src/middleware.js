@@ -1,3 +1,5 @@
+/* eslint-disable curly */
+/* eslint-disable nonblock-statement-body-position */
 /* eslint-disable consistent-return */
 /* eslint-disable newline-per-chained-call */
 const Joi = require('joi');
@@ -25,7 +27,7 @@ async function validateUser(req, res, next) {
 }
 async function validateRegistration(req, res, next) {
   const schema = Joi.object({
-    full_name: Joi.string().min(5).max(100).required(),
+    full_name: Joi.string().min(2).max(100).required(),
     email: Joi.string().email().min(4).max(100).required(),
     password: Joi.string().min(5).max(100).required(),
   });
@@ -51,7 +53,8 @@ function validateToken(req, res, next) {
   if (!tokenGotFromUser) return ErrorCase(res, 'no token', 401);
 
   const verifyData = verifyJwtToken(tokenGotFromUser);
-  if (verifyData === false) return ErrorCase(res, 'invalid token', 403);
+  if (verifyData === false)
+    return ErrorCase(res, 'Your session expired, please login again', 403);
   req.userId = verifyData.id;
   next();
 }

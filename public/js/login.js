@@ -1,6 +1,10 @@
 const URL = 'http://localhost:3000';
 const errorsContainerEl = document.querySelector('.errors');
-document.querySelector('form').addEventListener('submit', loginToDatabase);
+
+function handleErrors(obj) {
+  errorsContainerEl.innerHTML = '';
+  errorsContainerEl.innerHTML += `<p style="color:red">${obj}</p>`;
+}
 
 async function loginToDatabase(e) {
   e.preventDefault();
@@ -16,19 +20,13 @@ async function loginToDatabase(e) {
     body: JSON.stringify(loginUserData),
   });
   const data = await result.json();
-  console.log(data);
   if (data.success === false) {
     handleErrors(data.message);
-    console.log('negerai su duomenimis');
   }
   if (data.success === true) {
-    console.log('viskas ok su prisijungimu');
-    localStorage.setItem('token24', data.data);
-    window.location.replace('index.html');
+    localStorage.setItem('tokenExam', data.data);
+    window.location.replace('accounts.html');
   }
 }
 
-function handleErrors(obj) {
-  errorsContainerEl.innerHTML = '';
-  errorsContainerEl.innerHTML += `<p style="color:red">${obj}</p>`;
-}
+document.querySelector('form').addEventListener('submit', loginToDatabase);
