@@ -1,3 +1,5 @@
+/* eslint-disable curly */
+/* eslint-disable nonblock-statement-body-position */
 /* eslint-disable consistent-return */
 /* eslint-disable newline-per-chained-call */
 const Joi = require('joi');

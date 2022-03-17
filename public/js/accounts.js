@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable camelcase */
 const URL = 'http://localhost:3000';
 const formOfAddingGroup = document.querySelector('form');
 const token = localStorage.getItem('tokenExam');
@@ -7,36 +9,12 @@ function handleErrors(obj) {
   errorsContainerEl.innerHTML = '';
   errorsContainerEl.innerHTML += `<p style="color:red">${obj}</p>`;
 }
-renderGroups();
 
 function linkToBills(e) {
   e.preventDefault();
   const getIdOfSelectedGroup = e.currentTarget.dataset.id;
-  console.log(getIdOfSelectedGroup);
   localStorage.setItem('selectedGroup', getIdOfSelectedGroup);
   window.location.assign('bills.html');
-}
-
-async function createGroup(e) {
-  e.preventDefault();
-  const group_id = e.target.groupId.value;
-  const data = await fetch(`${URL}/accounts`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ group_id: Number(group_id) }),
-  });
-
-  const dataJson = await data.json();
-  console.log(dataJson);
-  if (dataJson.success === false) {
-    handleErrors(dataJson.message);
-  }
-  if (dataJson.success === true) {
-    renderGroups();
-  }
 }
 
 async function renderGroups() {
@@ -54,6 +32,7 @@ async function renderGroups() {
       const groupDiv = document.createElement('div');
       groupDiv.classList.add('group-div');
       groupDiv.setAttribute('data-id', group.group_id);
+      groupDiv.classList.add(`group-${group.group_id}`);
       groupDiv.addEventListener('click', linkToBills);
       const groupId = document.createElement('h2');
       groupId.classList.add('group-id');
@@ -64,6 +43,34 @@ async function renderGroups() {
       placeForRenderGroups.append(groupDiv);
       groupDiv.append(groupId, groupName);
     });
+  }
+}
+
+renderGroups();
+
+async function createGroup(e) {
+  e.preventDefault();
+  const group_id = e.target.groupId.value;
+  const foundGroup = document.querySelector(`.group-${group_id}`);
+  if (foundGroup) {
+    alert('This group is allready added');
+    return;
+  }
+  const data = await fetch(`${URL}/accounts`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ group_id: Number(group_id) }),
+  });
+
+  const dataJson = await data.json();
+  if (dataJson.success === false) {
+    handleErrors(dataJson.message);
+  }
+  if (dataJson.success === true) {
+    renderGroups();
   }
 }
 

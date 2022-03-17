@@ -1,5 +1,7 @@
 const mysql = require('mysql2/promise');
+
 const dbConfig = require('../dbConfig');
+
 const tableName = 'accounts';
 
 async function accountsToDb(userId, groupId) {
@@ -10,7 +12,6 @@ async function accountsToDb(userId, groupId) {
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db', error);
     return false;
   }
 }
@@ -26,7 +27,6 @@ async function getAllGroupsDb(userId) {
     await connection.close();
     return dataFromDb;
   } catch (error) {
-    console.log('beda su db', error);
     return false;
   }
 }

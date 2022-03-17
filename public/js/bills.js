@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable camelcase */
 const URL = 'http://localhost:3000';
 const groupSelected = localStorage.getItem('selectedGroup');
