@@ -11,19 +11,20 @@ renderGroups();
 
 async function createGroup(e) {
   e.preventDefault();
-  const groupId = e.target.groupId.value;
+  const group_id = e.target.groupId.value;
   const data = await fetch(`${URL}/accounts`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(groupId),
+    body: JSON.stringify({ group_id: Number(group_id) }),
   });
+
   const dataJson = await data.json();
   console.log(dataJson);
   if (dataJson.success === false) {
-    handleErrors(data.message);
+    handleErrors(dataJson.message);
   }
   if (dataJson.success === true) {
     renderGroups();
@@ -35,9 +36,8 @@ async function renderGroups() {
     headers: { Authorization: `Bearer ${token}` },
   });
   const dataJson = await data.json();
-  console.log(dataJson);
   if (dataJson.success === false) {
-    handleErrors(data.message);
+    handleErrors(dataJson.message);
   }
   if (dataJson.success === true) {
     const placeForRenderGroups = document.querySelector('.groups-list');

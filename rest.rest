@@ -19,7 +19,7 @@ Content-Type: application/json
 ###
 POST  http://localhost:3000/accounts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjQ3NTExNjYwLCJleHAiOjE2NDc1MTUyNjB9.CQQ6mmumr7r5GX3dDnszf_9ZE3Y58lzmkZGhrrNqmvU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTE2ODcxLCJleHAiOjE2NDc1MjA0NzF9._ctSepH01bziTHaTVasnoDfqPObrvGgkddk1oJVuWBk
 
  {
     "group_id":4
