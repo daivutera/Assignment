@@ -33,7 +33,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 
 POST http://localhost:3000/bills
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTA4NDcyLCJleHAiOjE2NDc1MTIwNzJ9.oMn6txbHxGGkB2wQQMfuATHgmZ3dIO7sFiNfUAFWNyk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTI0MTA2LCJleHAiOjE2NDc1Mjc3MDZ9.NCiNTrBKmGuqYdL2EPRY21PvkXPREHtOMlq29mwmsxc
 
 {
     "group_id":1,

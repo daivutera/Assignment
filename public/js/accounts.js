@@ -9,6 +9,13 @@ function handleErrors(obj) {
 }
 renderGroups();
 
+function linkToBills(e) {
+  e.preventDefault;
+  const getIdOfSelectedGroup = e.target.dataset.id;
+  localStorage.setItem('selectedGroup', getIdOfSelectedGroup);
+  window.location.replace('bills.html');
+}
+
 async function createGroup(e) {
   e.preventDefault();
   const group_id = e.target.groupId.value;
@@ -45,6 +52,8 @@ async function renderGroups() {
     dataJson.data.forEach((group) => {
       const groupDiv = document.createElement('div');
       groupDiv.classList.add('group-div');
+      groupDiv.setAttribute('data-id', group.group_id);
+      groupDiv.addEventListener('click', linkToBills);
       const groupId = document.createElement('h2');
       groupId.classList.add('group-id');
       groupId.innerText = `ID: ${group.group_id}`;

@@ -51,7 +51,8 @@ function validateToken(req, res, next) {
   if (!tokenGotFromUser) return ErrorCase(res, 'no token', 401);
 
   const verifyData = verifyJwtToken(tokenGotFromUser);
-  if (verifyData === false) return ErrorCase(res, 'invalid token', 403);
+  if (verifyData === false)
+    return ErrorCase(res, 'Your session expired, please login again', 403);
   req.userId = verifyData.id;
   next();
 }
