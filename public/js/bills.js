@@ -19,19 +19,31 @@ async function renderSelectedGroupBills() {
     handleErrors(dataJson.message);
   }
   if (dataJson.success === true) {
-    if (!data.length) {
+    if (dataJson.data.length === 0) {
       errorsContainerEl.innerHTML =
-        '<h2 class="no-content" style="color:grey"> No bills at the moment for this group</h2>';
+        '<h2 class="no-content" style="color:grey; font-size: 13px"> No bills at the moment for this group</h2>';
     }
     const tablePlace = document.querySelector('.table');
     const divForTable = document.createElement('div');
+    divForTable.classList.add('table-div');
     const table = document.createElement('table');
-    divForTable.innerHTML = ` 
+    table.innerHTML = '';
+    table.innerHTML = ` 
     <tr>
     <th>ID</th>
     <th>Description</th>
     <th>Amount</th>
   </tr>`;
+    dataJson.data.forEach((bill) => {
+      table.innerHTML += `
+      <tr>
+      <td>${bill.id}</td>
+      <td>${bill.description}</td>
+      <td>$${bill.amount}</td>
+    </tr>`;
+    });
+    divForTable.append(table);
+    tablePlace.append(divForTable);
   }
 }
 renderSelectedGroupBills();
@@ -66,4 +78,5 @@ async function addBillToSelectedGroup(e) {
     renderSelectedGroupBills();
   }
 }
+
 createBillForm.addEventListener('submit', addBillToSelectedGroup);
