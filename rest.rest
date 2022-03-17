@@ -2,9 +2,9 @@ POST http://localhost:3000/register
 Content-Type: application/json
  
     {
-        "full_name":"daiva rajackiene",
-        "email":"daiva@daiva.lt",
-        "password":"secret122"
+        "full_name":"katherin",
+        "email":"du@du.lt",
+        "password":"katherin"
     }
 
 ###
@@ -13,8 +13,8 @@ POST  http://localhost:3000/login
 Content-Type: application/json
 
  {
-    "email":"dai@dai.lt",
-    "password":"secret122"
+    "email":"du@du.lt",
+    "password":"katherin"
  }
 ###
 POST  http://localhost:3000/accounts
@@ -28,7 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxN
 ###
  
 http://localhost:3000/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjQ3NTA4NDcyLCJleHAiOjE2NDc1MTIwNzJ9.oMn6txbHxGGkB2wQQMfuATHgmZ3dIO7sFiNfUAFWNyk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjQ3NTM2Mzk2LCJleHAiOjE2NDc1Mzk5OTZ9.SsANrRCJJUn1gppTOsOHtB4I_E4QzCr0KwNXfP02V0o
 ###
 
 POST http://localhost:3000/bills
