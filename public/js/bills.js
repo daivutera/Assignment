@@ -11,6 +11,8 @@ function handleErrors(obj) {
 }
 
 async function renderSelectedGroupBills() {
+  const tablePlace = document.querySelector('.table');
+  tablePlace.innerHTML = '';
   const data = await fetch(`${URL}/bills/${groupSelected}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -23,11 +25,10 @@ async function renderSelectedGroupBills() {
       errorsContainerEl.innerHTML =
         '<h2 class="no-content" style="color:grey; font-size: 13px"> No bills at the moment for this group</h2>';
     }
-    const tablePlace = document.querySelector('.table');
     const divForTable = document.createElement('div');
     divForTable.classList.add('table-div');
     const table = document.createElement('table');
-    table.innerHTML = '';
+
     table.innerHTML = ` 
     <tr>
     <th>ID</th>

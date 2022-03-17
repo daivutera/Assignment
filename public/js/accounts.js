@@ -10,10 +10,11 @@ function handleErrors(obj) {
 renderGroups();
 
 function linkToBills(e) {
-  e.preventDefault;
-  const getIdOfSelectedGroup = e.target.dataset.id;
+  e.preventDefault();
+  const getIdOfSelectedGroup = e.currentTarget.dataset.id;
+  console.log(getIdOfSelectedGroup);
   localStorage.setItem('selectedGroup', getIdOfSelectedGroup);
-  window.location.replace('bills.html');
+  window.location.assign('bills.html');
 }
 
 async function createGroup(e) {

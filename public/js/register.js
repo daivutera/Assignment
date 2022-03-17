@@ -35,7 +35,7 @@ async function sendDataToDatabase(e) {
     handleErrors(data.formatedError);
   }
   if (data.success === true) {
-    window.location.replace('login.html');
+    window.location.assign('login.html');
   }
 }
 
