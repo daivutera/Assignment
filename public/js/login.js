@@ -20,7 +20,6 @@ async function loginToDatabase(e) {
     body: JSON.stringify(loginUserData),
   });
   const data = await result.json();
-  console.log(data);
   if (data.success === false) {
     handleErrors(data.message);
   }
