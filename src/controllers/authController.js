@@ -5,6 +5,7 @@ const {
   successCase,
   verifyHash,
   generateJwtToken,
+  hashPass,
 } = require('../helpers');
 const { userLoginDb, registerUserToDb } = require('../models/authModel');
 
@@ -17,13 +18,13 @@ async function loginUser(req, res) {
     return;
   }
   if (!users.length) {
-    return ErrorCase(res, 'password, email or full name does not match 1');
+    return ErrorCase(res, 'password or email does not match 1');
   }
 
   const foundUserObj = users[0];
 
   if (!verifyHash(password, foundUserObj)) {
-    return ErrorCase(res, 'password, email or full name does not match 2');
+    return ErrorCase(res, 'password or email does not match 2');
   }
   const token = generateJwtToken(foundUserObj);
   successCase(res, token);
@@ -31,7 +32,8 @@ async function loginUser(req, res) {
 
 async function registerUser(req, res) {
   const { full_name, email, password } = req.body;
-  const users = await registerUserToDb(full_name, email, password);
+  const passwordHashed = hashPass(password);
+  const users = await registerUserToDb(full_name, email, passwordHashed);
   if (users === false) {
     ErrorCase(res);
     return;

@@ -1,12 +1,27 @@
+/* eslint-disable camelcase */
+/* eslint-disable operator-linebreak */
 const URL = 'http://localhost:3000';
 const errorsContainerEl = document.querySelector('.errors');
-document.querySelector('form').addEventListener('submit', sendDataToDatabase);
+
+function handleErrors(erorrArray) {
+  errorsContainerEl.innerHTML = '';
+  erorrArray.forEach((err) => {
+    errorsContainerEl.innerHTML += `<p>${err.message}</p>`;
+  });
+}
 
 async function sendDataToDatabase(e) {
   e.preventDefault();
+  const full_name = e.target.fullName.value;
   const email = e.target.email.value;
   const password = e.target.password.value;
+  const password2 = e.target.rpassword.value;
+  if (password !== password2) {
+    errorsContainerEl.innerHTML = 'Passwords do not match!';
+    return;
+  }
   const dataToSend = {
+    full_name,
     email,
     password,
   };
@@ -16,21 +31,12 @@ async function sendDataToDatabase(e) {
     body: JSON.stringify(dataToSend),
   });
   const data = await result.json();
-  console.log(data);
   if (data.success === false) {
     handleErrors(data.formatedError);
   }
   if (data.success === true) {
-    alert('registration successful');
     window.location.replace('login.html');
   }
 }
 
-function handleErrors(erorrArray) {
-  errorsContainerEl.innerHTML = '';
-  console.log('erorrArray ===', erorrArray);
-  erorrArray.forEach((err) => {
-    errorsContainerEl.innerHTML += err.message;
-    console.log(err.message);
-  });
-}
+document.querySelector('form').addEventListener('submit', sendDataToDatabase);
